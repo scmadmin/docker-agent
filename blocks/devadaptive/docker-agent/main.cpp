@@ -8,11 +8,16 @@
  */
 
 #include <iostream>
+#include <map>
+#include <string>
 
 #include "lasote/docker_client/client.h"
 
 #include "filesystem.hpp"
 #include "network.hpp"
+#include "memory.hpp"
+#include "container.hpp"
+#include "ContainerData.hpp"
 
 int main() {
 
@@ -23,8 +28,9 @@ int main() {
         cout << "Error: " << status <<  endl  << desc;
     };
 
-    auto c7 = client.list_containers([] ( jsonxx::Object ret) {
+    auto listContainers = client.list_containers([] ( jsonxx::Object ret) {
         const std::string key = "data";
+        //cout << ret.json() << endl;
         JSON_ARRAY array = ret.get<JSON_ARRAY>(key);
         const std::vector<jsonxx::Value*> containers =  array.values();
 
@@ -33,8 +39,12 @@ int main() {
                 auto dockerContainer = value->get<jsonxx::Object>();
                 if (dockerContainer.has<jsonxx::String>("Id")) {
                     auto id = dockerContainer.get<jsonxx::String>("Id");
-                    cout << "id: " << id << endl;
-                    parseNetworkInNamespace(getNamespacePath(id));
+                    ContainerData containerData{id};
+                    getContainerData(dockerContainer, containerData);
+                    getNetworkData(id, containerData);
+                    getMemoryData(id, containerData);
+                    cout << "\"document\": " << containerData.documentToJSON() << endl;
+                    cout << "\"metric\": "   << containerData.metricToJSON() << endl;
                 }
             }
         }
