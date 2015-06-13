@@ -9,12 +9,13 @@
 #include <map>
 #include <string>
 #include "hjiang/jsonxx/jsonxx.h"
+#include "dautil.hpp"
 
 class ContainerData {
 
 public:
 
-    ContainerData(std::string& id) : containerId(id) {}
+    ContainerData(const std::string& id, const std::string& tenantId) : containerId(id), tenantId(tenantId) {}
 
     void putMetricData(const std::string& key, const long value) {
         metricData.insert({key, value});
@@ -34,6 +35,31 @@ public:
         }
         return metricObject.json();
     }
+
+    //this should be external
+
+    jsonxx::Array getMetricArray() {
+        jsonxx::Array metricArray;
+        long now = currentTimeMillis();
+        for (auto metricPair : metricData) {
+            jsonxx::Object metricObject;
+            metricObject << "metricId1" << metricPair.first;
+            metricObject << "metricId2" << containerId;
+            metricObject << "agentId" << "xyz-agentid";
+            metricObject << "tenantId" << tenantId;
+            metricObject << "day" << 0;
+            metricObject << "duration" << duration;
+            metricObject << "eventTime" << now;
+            metricObject << "metricType" << "not used";
+            jsonxx::Object dataObject;
+            dataObject << "value" << metricPair.second;
+            dataObject << "count" << 1;
+            metricObject << "data" << dataObject;
+            metricArray  << metricObject;
+        }
+        return metricArray;
+    }
+
     std::string documentToJSON() {
         jsonxx::Object documentObject;
         documentObject << "containerId" << containerId;
@@ -57,13 +83,17 @@ public:
         }
     }
 
+
 private:
     std::map<const std::string, const std::string> documentData;
     std::map<const std::string, const long> metricData;
-    std::string containerId;
-
+    const std::string containerId;
+    const std::string tenantId;
+    long duration = 15000L;
 
 };
 
 
 #endif //DOCKER_AGENT_CONTAINERDATA_H
+
+

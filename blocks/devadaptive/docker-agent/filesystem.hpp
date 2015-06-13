@@ -22,7 +22,9 @@ std::string parsePid(const std::string& procFile) {
     if (std::getline(file, str)) {
         return str;
     } else {
-        throw "couldn't read file";
+        string error = "couldn't read file " + procFile;
+        cout << error << endl;
+        throw error;
     }
 }
 
@@ -35,14 +37,19 @@ std::string getNamespacePath(const std::string& containerId) {
 
 int openNamespace(const string &containerId, int &fileDescriptor) {
     auto nsFile = getNamespacePath(containerId);
+    //cout << "opening "  << nsFile << endl;
     fileDescriptor = open(nsFile.c_str(), O_RDONLY);
     if (-1 == fileDescriptor) {
-        throw "unable to open file " + nsFile;
+        string error = "unable to open file " + nsFile;
+        cout << error << endl;
+        throw error;
     }
     //this puts us inside the containers namespace.
     int nsRet = setns(fileDescriptor, CLONE_NEWNET);
     if (-1 == nsRet) {
-        throw "unable to set namespace based on " + nsFile;
+        std::string error = "unable to set namespace based on " + nsFile;
+        cout << error << endl;
+        throw error;
     }
     //cout << "opening " << fileDescriptor << endl;
 }
