@@ -80,9 +80,9 @@ public:
     HTTPClient(string host) : uri(host){
     }
 
-    shared_ptr<LambdaRequest> postMetrics(jsonxx::Array metrics, JSON_F ret_cb, ERR_F err_cb) {
+    shared_ptr<LambdaRequest> postMetrics(string& metrics, JSON_F ret_cb, ERR_F err_cb) {
         std::string path("/metrics");
-        return post_and_parse_json_response(path, metrics.json(), ret_cb, err_cb);
+        return post_and_parse_json_response(path, metrics, ret_cb, err_cb);
     }
 };
 

@@ -5,9 +5,11 @@
 #include "container.hpp"
 #include "ContainerData.hpp"
 #include "HTTPClient.h"
+#include "curl_client.hpp"
 
-std::string METRICS_END_POINT = "http://192.168.0.22:3000/porter";
-//std::string METRICS_END_POINT = "https://devadaptive.com:/p/porter";
+
+//std::string METRICS_END_POINT = "http://192.168.0.22:3000/porter/metrics";
+std::string METRICS_END_POINT = "https://devadaptive.com:/p/porter/metrics";
 
 ERR_F error_cb = [] (int status, string desc) {
     cout << "Error: " << status <<  endl  << desc;
@@ -18,11 +20,11 @@ void listContainers() {
     DockerClient client("http://localhost:4243");
 
     auto c6 = client.list_containers([] ( jsonxx::Object ret) {
-        HTTPClient porterClient(METRICS_END_POINT);
+        HTTPClient porterClient("http://192.168.0.22:3000/porter");
         JSON_F logResponse = [](jsonxx::Object ret) { cout << ret.json() << endl; };
 
         const std::string key = "data";
-        const std::string tenantId = "456";
+        const std::string tenantId = "tenant2";
         //cout << ret.json() << endl;
         JSON_ARRAY array = ret.get<JSON_ARRAY>(key);
         const std::vector<jsonxx::Value *> containers = array.values();
@@ -32,14 +34,18 @@ void listContainers() {
                 auto dockerContainer = value->get<jsonxx::Object>();
                 if (dockerContainer.has<jsonxx::String>("Id")) {
                     auto id = dockerContainer.get<jsonxx::String>("Id");
-                    //cout << "container id: "  << id << endl;
                     ContainerData containerData{id, tenantId};
                     getContainerData(dockerContainer, containerData);
                     getNetworkData(id, containerData);
                     resetNSHack();
                     getMemoryData(id, containerData);
                     //cout << "metrics: " << containerData.getMetricArray().json() << endl;
-                    porterClient.postMetrics(containerData.getMetricArray(), logResponse, error_cb);
+                    std::string jsonOut(containerData.getMetricArray().json());
+                    std::string out("[{\"the\" : \"quick\",\"brown\":\"fox\"},{\"jumped\": \"over\", \"the\" : \"lazy\"}]");
+                    std::string responseBuffer;
+                    postJSON(METRICS_END_POINT, jsonOut, responseBuffer);
+                    //porterClient.postMetrics(out, logResponse, error_cb);
+                    cout << "container id: "  << id << " response: " << responseBuffer << endl;
                 }
             }
         }
