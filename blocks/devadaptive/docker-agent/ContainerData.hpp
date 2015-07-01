@@ -8,7 +8,7 @@
 #include "stdlib.h"
 #include <map>
 #include <string>
-#include "hjiang/jsonxx/jsonxx.h"
+//#include "hjiang/jsonxx/jsonxx.h"
 #include "dautil.hpp"
 
 class ContainerData {
@@ -25,6 +25,14 @@ public:
         documentData.insert({key, value});
     }
 
+    template <typename Func>
+    void mapMetricArray(Func mapper) {
+        long now = currentTimeMillis();
+        for (auto metricPair : metricData) {
+            mapper(metricPair, containerId, now, duration, tenantId);
+        }
+    }
+/*
     //this should be external
     std::string metricToJSON() {
         jsonxx::Object metricObject;
@@ -36,6 +44,29 @@ public:
         return metricObject.json();
     }
 
+
+
+    jsonxx::Array getMetricArray2() {
+        jsonxx::Array metricArray;
+        auto mapper = [&] (std::pair<const std::string&, const long> metricPair, const std::string& cont, long now, long duration, const std::string& tenantId) {
+            jsonxx::Object metricObject;
+            metricObject << "metricId1" << metricPair.first;
+            metricObject << "metricId2" << containerId;
+            metricObject << "agentId" << "xyz-agentid";
+            metricObject << "tenantId" << tenantId;
+            metricObject << "day" << 0;
+            metricObject << "duration" << duration;
+            metricObject << "eventTime" << now;
+            metricObject << "metricType" << "not used";
+            jsonxx::Object dataObject;
+            dataObject << "value" << metricPair.second;
+            dataObject << "count" << 1;
+            metricObject << "data" << dataObject;
+            metricArray  << metricObject;
+        };
+        mapMetricArray(mapper);
+        return metricArray;
+    }
     //this should be external
 
     jsonxx::Array getMetricArray() {
@@ -69,6 +100,7 @@ public:
         }
         return documentObject.json();
     }
+    */
 
     void dump() {
         std::cout << "container: " << containerId << endl;

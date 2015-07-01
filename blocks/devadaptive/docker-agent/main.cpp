@@ -4,12 +4,14 @@
 #include "memory.hpp"
 #include "container.hpp"
 #include "ContainerData.hpp"
+#include "JSONMetrics.hpp"
 #include "HTTPClient.h"
 #include "curl_client.hpp"
+#include "Configuration.hpp"
 
 
-//std::string METRICS_END_POINT = "http://192.168.0.22:3000/porter/metrics";
-std::string METRICS_END_POINT = "https://devadaptive.com:/p/porter/metrics";
+//std::string METRICS_END_POINT = "http://192.168.0.22:3000/porter/dockermetrics";
+std::string METRICS_END_POINT = "https://devadaptive.com/p/porter/dockermetrics";
 
 ERR_F error_cb = [] (int status, string desc) {
     cout << "Error: " << status <<  endl  << desc;
@@ -17,10 +19,10 @@ ERR_F error_cb = [] (int status, string desc) {
 
 
 void listContainers() {
+    Configuration configuration("/etc/devadaptive/config");
     DockerClient client("http://localhost:4243");
 
     auto c6 = client.list_containers([] ( jsonxx::Object ret) {
-        HTTPClient porterClient("http://192.168.0.22:3000/porter");
         JSON_F logResponse = [](jsonxx::Object ret) { cout << ret.json() << endl; };
 
         const std::string key = "data";
@@ -28,6 +30,7 @@ void listContainers() {
         //cout << ret.json() << endl;
         JSON_ARRAY array = ret.get<JSON_ARRAY>(key);
         const std::vector<jsonxx::Value *> containers = array.values();
+        JSONMetrics jsonMetrics;
 
         for (auto &value : containers) {
             if (value->is<jsonxx::Object>()) {
@@ -39,16 +42,17 @@ void listContainers() {
                     getNetworkData(id, containerData);
                     resetNSHack();
                     getMemoryData(id, containerData);
-                    //cout << "metrics: " << containerData.getMetricArray().json() << endl;
-                    std::string jsonOut(containerData.getMetricArray().json());
-                    std::string out("[{\"the\" : \"quick\",\"brown\":\"fox\"},{\"jumped\": \"over\", \"the\" : \"lazy\"}]");
-                    std::string responseBuffer;
-                    postJSON(METRICS_END_POINT, jsonOut, responseBuffer);
-                    //porterClient.postMetrics(out, logResponse, error_cb);
-                    cout << "container id: "  << id << " response: " << responseBuffer << endl;
+                    containerData.mapMetricArray(jsonMetrics.getMapper());
+                    jsonMetrics.incrementContainerCount();
                 }
             }
         }
+        std::string jsonOut(jsonMetrics.getMetricsArray().json());
+        std::string responseBuffer;
+        cout << "metrics: " << jsonMetrics.getMetricsArray().json() << endl;
+        postJSON(METRICS_END_POINT, jsonOut, responseBuffer);
+        double jsonLength = jsonOut.length() / 1024.0 / 1024.0;
+        cout << "containers: "  << jsonMetrics.getContainerCount() << " size: " << jsonLength  << " response: " << responseBuffer << endl;
 
     }, error_cb);
 }
