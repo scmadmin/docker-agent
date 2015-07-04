@@ -22,7 +22,7 @@ bool getContainerData(jsonxx::Object dockerContainer, ContainerData &containerDa
     //container create time
     if (dockerContainer.has<jsonxx::Number>("Created")) {
         jsonxx::Number value = dockerContainer.get<jsonxx::Number>("Created");
-        containerData.putMetricData("container/Created", static_cast<long>(value));
+        containerData.putMetricData("container", "Created", static_cast<long>(value));
 
     }
     //container Image
@@ -49,6 +49,10 @@ bool getContainerData(jsonxx::Object dockerContainer, ContainerData &containerDa
                 "container/Names",
                 appender.str()
         );
+        //todo: get this from the document maybe, downstream?
+        if (values.size() > 0 && values[0]->is<jsonxx::String>()) {
+            containerData.setName(values[0]->get<jsonxx::String>());
+        }
     }
     //container Status
     if (dockerContainer.has<jsonxx::String>("Status")) {

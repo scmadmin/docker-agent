@@ -8,6 +8,7 @@
 #include "HTTPClient.h"
 #include "curl_client.hpp"
 #include "Configuration.hpp"
+#include "dautil.hpp"
 
 
 //std::string METRICS_END_POINT = "http://192.168.0.22:3000/porter/dockermetrics";
@@ -27,6 +28,9 @@ void listContainers() {
 
         const std::string key = "data";
         const std::string tenantId = "tenant2";
+        const std::string hostname = getHostnameBestGuess();
+        cout << "hostname: " << hostname << endl;
+
         //cout << ret.json() << endl;
         JSON_ARRAY array = ret.get<JSON_ARRAY>(key);
         const std::vector<jsonxx::Value *> containers = array.values();
@@ -37,7 +41,7 @@ void listContainers() {
                 auto dockerContainer = value->get<jsonxx::Object>();
                 if (dockerContainer.has<jsonxx::String>("Id")) {
                     auto id = dockerContainer.get<jsonxx::String>("Id");
-                    ContainerData containerData{id, tenantId};
+                    ContainerData containerData{id, tenantId, hostname};
                     getContainerData(dockerContainer, containerData);
                     getNetworkData(id, containerData);
                     resetNSHack();

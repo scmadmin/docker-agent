@@ -6,20 +6,12 @@
 #define DOCKER_AGENT_DAUTIL_HPP
 
 
-#include <chrono>
 
-// ...
-
+std::string getHostnameBestGuess();
 
 /**
  * derp
  */
-long currentTimeMillis() {
-    using namespace std::chrono;
-    milliseconds ms = duration_cast<milliseconds>(
-            system_clock::now().time_since_epoch()
-    );
-    return ms.count();
-}
+long currentTimeMillis();
 
 #endif //DOCKER_AGENT_DAUTIL_HPP

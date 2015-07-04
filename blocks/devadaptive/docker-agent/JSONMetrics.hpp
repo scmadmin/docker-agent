@@ -6,10 +6,10 @@
 #define DOCKER_AGENT_JSONMETRIC_HPP
 
 #include "../../../deps/hjiang/jsonxx/jsonxx.h"
+#include "ContainerData.hpp"
 
-using MetricMapperType  = std::function<void(std::pair<const std::string &, const long> metricPair,
-                                             const std::string &containerId, long now, long duration,
-                                             const std::string &tenantId)>;
+using MetricMapperType  = std::function<void(std::pair<const MetricGroupAndKey &, const long> metricPair,
+                                             const ContainerData* containerData, const long now)>;
 
 class JSONMetrics {
 
@@ -34,18 +34,17 @@ private:
     jsonxx::Array jsonMetrics;
     int containerCount = 0;
 
-    MetricMapperType mapper = [&](std::pair<const std::string &, const long> metricPair,
-                                  const std::string &containerId, long now, long duration,
-                                  const std::string &tenantId) {
+    MetricMapperType mapper = [&](std::pair<const MetricGroupAndKey &, const long> metricPair,
+                                  const ContainerData* containerData, const long now) {
         jsonxx::Object metricObject;
-        metricObject << "host" << "192.168.0.1";
-        metricObject << "container" << containerId;
-        metricObject << "containerName" << "TODO";
-        metricObject << "metricId" << metricPair.first;
-        metricObject << "metricType" << "TODO e.g. memory";
+        metricObject << "host" <<  containerData->getHostname();
+        metricObject << "container" << containerData->getContainerId();
+        metricObject << "containerName" << containerData->getName();
+        metricObject << "metricId" << metricPair.first.second;
+        metricObject << "metricGroup" << metricPair.first.first;
         metricObject << "agentId" << "c4e99f12-666b-a666-97b8-6e666db9a667";
-        metricObject << "tenantId" << tenantId;
-        metricObject << "duration" << duration;
+        metricObject << "tenantId" << containerData->getTenantId();
+        metricObject << "duration" << containerData->getDuration();
         metricObject << "eventTime" << now;
         metricObject << "dataSource" << "docker";
         jsonxx::Object dataObject;

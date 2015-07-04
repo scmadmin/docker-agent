@@ -17,7 +17,7 @@ void getMemoryData(std::string &containerId, ContainerData &results) {
     std::ifstream infile(memStatFile);
     std::string name, value;
     while (infile >> name >> value) {
-        results.putMetricData("memory/" + name, std::stol(value));
+        results.putMetricData("memory",  name, std::stol(value));
     }
 }
 

@@ -11,9 +11,6 @@ SET(BII_BIN_DIR bin)
 set(CMAKE_MODULE_PATH "${BII_PROJECT_ROOT}/blocks"
 					  "${BII_PROJECT_ROOT}/deps")
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-
-
 # inclusion of general biicode macros, biicode.cmake 
 INCLUDE(biicode.cmake) 
 IF (${CMAKE_SYSTEM_NAME} STREQUAL "Arduino")

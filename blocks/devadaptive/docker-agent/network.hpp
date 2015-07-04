@@ -89,8 +89,8 @@ void getNetworkData(const std::string &containerId, ContainerData &containerData
             if (line.find("eth0") != std::string::npos) {
                 auto vec = xxx(line, ' ');
                 //cout << "Network: rx: " << vec[1] << " tx: " << vec[9] << endl;
-                containerData.putMetricData("network/receive_size", std::stol(vec[1]));
-                containerData.putMetricData("network/transmit_size", std::stol(vec[9]));
+                containerData.putMetricData("network", "receive_size", std::stol(vec[1]));
+                containerData.putMetricData("network", "transmit_size", std::stol(vec[9]));
             }
         }
         myfile.close();
