@@ -12,8 +12,11 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+
+
 std::string getProcFile(const std::string& containerId) {
-    return "/sys/fs/cgroup/devices/system.slice/docker-" + containerId + ".scope/cgroup.procs";
+    //pre 1.9 location: "/sys/fs/cgroup/devices/system.slice/docker-" + containerId + ".scope/cgroup.procs";
+    return "/sys/fs/cgroup/systemd/docker/" + containerId + "/cgroup.procs";
 }
 
 std::string parsePid(const std::string& procFile) {

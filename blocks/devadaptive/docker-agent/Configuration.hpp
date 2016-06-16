@@ -19,19 +19,18 @@ public:
 
     Configuration(const std::string &propertyFile) {
         std::ifstream infile(propertyFile);
+        typedef std::map<std::string, std::string> ConfigInfo;
+        ConfigInfo configValues;
         std::string line;
-        std::map<std::string, std::string> properties;
-        while (getline(infile, line)) {
-            //todo: trim start of line
-            if (line.length() > 0 && line[0] != '#') {
-                std::istringstream lineStream(line);
-                std::string key, value;
-                char delim;
-                if ((lineStream >> key >> delim >> value) && (delim == '=')) {
-                    std::cout << key << " = " << value << std::endl;
+        while (std::getline(infile, line)) {
+            std::istringstream lineStream(line);
+            std::string key;
+            if (std::getline(lineStream, key, '=')) {
+                std::string value;
+                if (key[0] == '#')
+                    continue;
+                if (std::getline(lineStream, value)) {
                     properties[key] = value;
-                } else {
-                    //std::cout << key << " = " << value << std::endl;
                 }
             }
         }
@@ -55,6 +54,7 @@ private:
     std::string tenantId;
     std::string url = "https://devadaptive.com/p/porter/metrics";
     bool debug = false;
+    std::map<std::string, std::string> properties;
 
 
 };

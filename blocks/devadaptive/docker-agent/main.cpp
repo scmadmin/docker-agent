@@ -2,6 +2,7 @@
 #include "filesystem.hpp"
 #include "network.hpp"
 #include "memory.hpp"
+#include "cpu.hpp"
 #include "container.hpp"
 #include "ContainerData.hpp"
 #include "JSONMetrics.hpp"
@@ -9,6 +10,10 @@
 #include "curl_client.hpp"
 #include "Configuration.hpp"
 #include "dautil.hpp"
+
+//must be run with --privileged and --pid=host for this to work in a container!
+//docker run --pid=host  --privileged --rm  -it -v /proc:/dockerproc -v /sys:/dockersys  selfagent /bin/bash
+
 
 
 //std::string METRICS_END_POINT = "http://192.168.0.22:3000/porter/dockermetrics";
@@ -20,8 +25,8 @@ ERR_F error_cb = [] (int status, string desc) {
 
 
 void listContainers() {
-    Configuration configuration("/etc/devadaptive/config");
-    DockerClient client("http://localhost:4243");
+    //Configuration configuration("/etc/devadaptive/config");
+    DockerClient client("http://127.0.0.1:4243");
 
     auto c6 = client.list_containers([] ( jsonxx::Object ret) {
         JSON_F logResponse = [](jsonxx::Object ret) { cout << ret.json() << endl; };
@@ -44,6 +49,7 @@ void listContainers() {
                     ContainerData containerData{id, tenantId, hostname};
                     getContainerData(dockerContainer, containerData);
                     getNetworkData(id, containerData);
+                    getCPUData(id, containerData);
                     resetNSHack();
                     getMemoryData(id, containerData);
                     containerData.mapMetricArray(jsonMetrics.getMapper());
