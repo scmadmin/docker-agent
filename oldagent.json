@@ -1,0 +1,546 @@
+[
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 1467056794 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "container",
+		"metricId": "Created",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 0 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "cpu",
+		"metricId": "total",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 8048640 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "active_anon",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 36864 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "active_file",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 3174400 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "cache",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 9223372036854775807 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "hierarchical_memory_limit",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 9223372036854775807 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "hierarchical_memsw_limit",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 0 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "inactive_anon",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 3137536 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "inactive_file",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 335872 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "mapped_file",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 3195 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "pgfault",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 3 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "pgmajfault",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 3108 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "pgpgin",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 1390 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "pgpgout",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 8048640 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "rss",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 4194304 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "rss_huge",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 0 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "swap",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 8048640 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "total_active_anon",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 36864 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "total_active_file",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 3174400 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "total_cache",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 0 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "total_inactive_anon",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 3137536 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "total_inactive_file",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 335872 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "total_mapped_file",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 3195 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "total_pgfault",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 3 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "total_pgmajfault",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 3108 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "total_pgpgin",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 1390 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "total_pgpgout",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 8048640 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "total_rss",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 4194304 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "total_rss_huge",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 0 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "total_swap",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 0 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "total_unevictable",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 0 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "memory",
+		"metricId": "unevictable",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 4785 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "network",
+		"metricId": "receive_size",
+		"tenantId": "tenant2" 
+	},
+	{
+		"agentId": "c4e99f12-666b-a666-97b8-6e666db9a667",
+		"container": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"containerName": "\/licenseserver",
+		"data": {
+			"count": 1,
+			"value": 3788 
+		},
+		"dataSource": "docker",
+		"duration": 15000,
+		"eventTime": 1467233360938,
+		"host": "paul-dev.devadaptive.com",
+		"metricGroup": "network",
+		"metricId": "transmit_size",
+		"tenantId": "tenant2" 
+	} 
+]
