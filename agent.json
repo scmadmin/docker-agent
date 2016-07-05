@@ -1,0 +1,63 @@
+{
+  "container_id": "61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+  "network": [
+    {
+      "interface": "eth0",
+      "rx_bytes": 2424,
+      "rx_packets": 22,
+      "rx_errs": 0,
+      "rx_drop": 0,
+      "rx_fifo": 0,
+      "rx_frame": 0,
+      "rx_compressed": 0,
+      "rx_multicast": 0,
+      "tx_bytes": 648,
+      "tx_packets": 8,
+      "tx_errs": 0,
+      "tx_drop": 0,
+      "tx_fifo": 0,
+      "tx_frame": 0,
+      "tx_compressed": 0,
+      "tx_multicast": 0,
+      "mac": "02:42:ac:11:00:02"
+    }
+  ],
+  "CPUStats": {
+    "user_usage": 5820000000,
+    "system_usage": 7920000000
+  },
+  "MemoryStats": {
+    "stats": {
+      "active_anon": 8028160,
+      "active_file": 36864,
+      "cache": 3174400,
+      "hierarchical_memory_limit": 9223372036854775807,
+      "hierarchical_memsw_limit": 9223372036854775807,
+      "inactive_anon": 0,
+      "inactive_file": 3137536,
+      "mapped_file": 335872,
+      "pgfault": 3196,
+      "pgmajfault": 3,
+      "pgpgin": 3189,
+      "pgpgout": 1476,
+      "rss": 8028160,
+      "rss_huge": 4194304,
+      "swap": 0,
+      "total_active_anon": 8028160,
+      "total_active_file": 36864,
+      "total_cache": 3174400,
+      "total_inactive_anon": 0,
+      "total_inactive_file": 3137536,
+      "total_mapped_file": 335872,
+      "total_pgfault": 3196,
+      "total_pgmajfault": 3,
+      "total_pgpgin": 3189,
+      "total_pgpgout": 1476,
+      "total_rss": 8028160,
+      "total_rss_huge": 4194304,
+      "total_swap": 0,
+      "total_unevictable": 0,
+      "unevictable": 0
+    }
+  }
+}

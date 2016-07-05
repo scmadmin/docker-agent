@@ -8,7 +8,30 @@ import (
 	"time"
 	"os"
 	"github.com/stretchr/testify/assert"
+	"io/ioutil"
 )
+
+const testFile = "/sys/fs/cgroup/memory/docker/61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346/memory.usage_in_bytes"
+
+func BenchmarkIOUtilReadFile(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		contents, err := ioutil.ReadFile(testFile)
+		if err != nil {
+			b.Fatal(err)
+		}
+		contents = contents[0: len(contents) - 2]
+		_, err = BytesToUInt64(contents)
+	}
+}
+
+func BenchmarkReadSingleUInt64ValueFile(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		_, err := ReadSingleUInt64ValueFile(testFile)
+		if err != nil {
+			b.Fatal(err)
+		}
+	}
+}
 
 func TestScannerOdd(t *testing.T) {
 	const slong = "9223372036854775807"
@@ -103,4 +126,7 @@ long_long_long_long_key20 9223372036854775807
 		b.Fatal(err)
 	}
 	b.ResetTimer()
+	for n := 0; n < b.N; n++ {
+		ReadKeyValueLines(filename)
+	}
 }

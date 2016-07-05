@@ -7,9 +7,54 @@ import (
 
 	"time"
 	"strconv"
+	"strings"
 )
 
-func testSpeed(t *testing.T) {
+var maxints = "18446744073709551615"
+var medints = "456789"
+var maxintb = []byte(maxints)
+var medintb = []byte(maxints)
+
+
+func BenchmarkBytesToUInt64(b *testing.B) {
+	var val = uint64(0)
+	var err error
+	for n := 0; n < b.N; n++ {
+		val, err = BytesToUInt64(maxintb)
+	}
+	assert.NotZero(b, val)
+	assert.Nil(b, err)
+}
+
+func BenchmarkParseUint(b *testing.B) {
+	var val = uint64(0)
+	var err error
+	for n := 0; n < b.N; n++ {
+		val, err = strconv.ParseUint(maxints, 10, 64)
+	}
+	assert.NotZero(b, val)
+	assert.Nil(b, err)
+}
+
+func BenchmarkStringJoin(b *testing.B) {
+	s := strings.Join([]string{"/sys/fs/cgroup/memory/docker",
+		"61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346",
+		"memory.usage_in_bytes"}, "/")
+	assert.NotNil(b, s)
+}
+
+func BenchmarkStringConcat(b *testing.B) {
+	s := "/sys/fs/cgroup/memory/docker/" +
+	"61c7f6cee8bfdb783aff6687f2697d6126063bd4e29ec2092e660bd2eeb6b346" +
+	"/memory.usage_in_bytes"
+	assert.NotNil(b, s)
+}
+
+func x(s string) {
+}
+
+func xtestSpeed(t *testing.T) {
+	t.SkipNow()
 	//maxints := "18446744073709551615"
 	maxints := "456789"
 	maxintb := []byte(maxints)

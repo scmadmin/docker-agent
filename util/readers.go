@@ -4,8 +4,22 @@ import (
 	"bufio"
 	"os"
 	"io/ioutil"
+	"errors"
 )
 
+func ReadSingleUInt64ValueFile(filename string) (uint64, error) {
+	file, err := os.Open(filename)
+	if err != nil {
+		return 0, err
+	}
+	defer file.Close()
+	scanner := bufio.NewScanner(file)
+	if (scanner.Scan()) {
+		return BytesToUInt64(scanner.Bytes())
+	} else {
+		return 0, errors.New("couldn't read file " + filename)
+	}
+}
 
 func ReadKeyValueLines(filename string) (map[string]uint64, error) {
 	file, err := os.Open(filename)
